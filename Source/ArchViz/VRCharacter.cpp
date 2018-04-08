@@ -40,18 +40,18 @@ void AVRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 void AVRCharacter::MoveForward(float val)
 {
 	//UE_LOG(LogTemp, Warning, TEXT("move Forward %f"), val);
+	/*
 	ForwardVector = Camera->GetForwardVector();
 	FVector NewLocation = GetActorLocation();
 	NewLocation += ForwardVector * val;
 	SetActorLocation(NewLocation);
+	*/
+	AddMovementInput(Camera->GetForwardVector(), val);
 }
 
 void AVRCharacter::MoveRight(float val)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("move Forward %f"), val);
-	ForwardVector = Camera->GetRightVector();
-	FVector NewLocation = GetActorLocation();
-	NewLocation += ForwardVector * val;
-	SetActorLocation(NewLocation);
+	
+	AddMovementInput(Camera->GetRightVector(), val);
 }
 
